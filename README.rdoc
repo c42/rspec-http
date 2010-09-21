@@ -1,3 +1,7 @@
+= Custom RSpec HTTP response code matchers
+  
   response.should be_ok
+  
   response.should be_unprocessable_entity
+  
   response.should be_im_a_teapot
