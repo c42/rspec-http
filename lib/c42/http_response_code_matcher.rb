@@ -17,7 +17,7 @@ module C42
     # :created or :not_implemented) into its corresponding HTTP status
     # code (like 200 or 501).
     SYMBOL_TO_STATUS_CODE = STATUS_CODES.inject({}) { |hash, (code, message)|
-      hash[message.gsub(/(\s|-)/, "_").gsub('\'', '').downcase.to_sym.tap{|s|p s}] = code
+      hash[message.gsub(/(\s|-)/, "_").gsub('\'', '').downcase.to_sym] = code
       hash
     }.freeze
 
