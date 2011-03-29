@@ -4,6 +4,7 @@ module C42
       102 => "Processing",
       207 => "Multi-Status",
       226 => "I'm Used",
+      409 => "Conflict",
       418 => "I'm A Teapot",
       422 => "Unprocessable Entity",
       423 => "Locked",
