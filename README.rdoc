@@ -1,9 +1,14 @@
 = RSpec HTTP 
 
-RSpec HTTP is a RSpec extension library that adds support for writing specs that cover HTTP based APIs.
+RSpec HTTP is a RSpec extension library that adds support for writing specs that cover HTTP based APIs. 
+
+To use this library, adding the rspec-http gem to your Gemfile and add the following line to your spec_helper.rb:
+  require 'rspec/http'
   
-  response.should be_ok
+This will make matchers such as the ones listed below available to you in your specs.
   
-  response.should be_unprocessable_entity
+  response.should be_http_ok
   
-  response.should be_im_a_teapot
+  response.should be_http_unprocessable_entity
+  
+  response.should be_http_im_a_teapot
