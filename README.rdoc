@@ -1,4 +1,6 @@
-= Custom RSpec HTTP response code matchers
+= RSpec HTTP 
+
+RSpec HTTP is a RSpec extension library that adds support for writing specs that cover HTTP based APIs.
   
   response.should be_ok
   
