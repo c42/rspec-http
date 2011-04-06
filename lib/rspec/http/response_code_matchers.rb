@@ -1,6 +1,6 @@
 module RSpec
   module Http
-    module ResponseCodeMatchers      
+    module ResponseCodeMatchers
       def self.clean_up_status(message)
         message.gsub(/(\s|-)/, "_").gsub('\'', '').downcase.to_sym
       end
@@ -44,7 +44,7 @@ module RSpec
       end
 
       RSpec::Http::STATUS_CODES.each do |code, status|
-        define_method("be_#{status_as_valid_method_name(code)}") do
+        define_method("be_http_#{status_as_valid_method_name(code)}") do
           HttpResponseCodeMatcher.new(code)
         end
       end

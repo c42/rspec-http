@@ -28,12 +28,12 @@ module RSpec::Http
       STATUS_CODES.each do |code, status|
         it "understands if a response is of type #{status}" do
           response.stub(:code).and_return(code.to_s)
-          response.should send("be_#{ResponseCodeMatchers.status_as_valid_method_name(code)}")
+          response.should send("be_http_#{ResponseCodeMatchers.status_as_valid_method_name(code)}")
         end
     
         it "understands if a response is not of type #{status}" do
           response.stub(:code).and_return('0')
-          response.should_not send("be_#{ResponseCodeMatchers.status_as_valid_method_name(code)}")
+          response.should_not send("be_http_#{ResponseCodeMatchers.status_as_valid_method_name(code)}")
         end
       end
       
@@ -44,12 +44,12 @@ module RSpec::Http
         
         it "response of type created" do
           response.stub(:code).and_return('201')
-          expect{ response.should be_ok }.to raise_error(/with a location of http:\/\/test\.server$/)
+          expect{ response.should be_http_ok }.to raise_error(/with a location of http:\/\/test\.server$/)
         end
 
         it "response of type redirect" do
           response.stub(:code).and_return('302')
-          expect{ response.should be_ok }.to raise_error(/with a location of http:\/\/test\.server$/)
+          expect{ response.should be_http_ok }.to raise_error(/with a location of http:\/\/test\.server$/)
         end
       end
     end
