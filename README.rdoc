@@ -1,6 +1,6 @@
 = RSpec HTTP 
 
-RSpec HTTP is a RSpec extension library that adds support for writing specs that cover HTTP based APIs. 
+RSpec HTTP is a RSpec extension library that adds support for writing specs that cover HTTP based API (or more popularly, RESTful APIs). 
 
 To use this library, first add the rspec-http gem to your Gemfile like so:
   gem 'rspec-http', '~> 0.0.1'
