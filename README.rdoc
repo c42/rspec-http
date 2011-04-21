@@ -22,12 +22,12 @@ This will make matchers such as the ones listed below available to you in your s
 
 == Rails
 
-If you're using Rails (and implicitly, rspec-rails), the same matchers will also be available in your controller specs '''without''' the <code>http</code> namespace. In other words, in your controller specs you can do:
+If you're using Rails (and implicitly, rspec-rails), the same matchers will also be available in your controller specs *without* the <code>http</code> namespace. In other words, in your controller specs you can do:
 
-response.should be_ok
+  response.should be_ok
 
-response.should be_created
+  response.should be_created
 
-response.should be_unprocessable_entity
+  response.should be_unprocessable_entity
 
-response.should be_im_a_teapot
+  response.should be_im_a_teapot
