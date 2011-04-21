@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
 
   s.rubygems_version   = "1.3.7"
 
-  s.files            = `git ls-files`.split("\n")
+  s.files            = `git ls-files`.split("\n") - ['.gitignore']
   s.test_files       = `git ls-files -- {spec}/*`.split("\n")
   s.extra_rdoc_files = [ "README.rdoc" ]
   s.rdoc_options     = ["--charset=UTF-8"]

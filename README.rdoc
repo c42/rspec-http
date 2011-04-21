@@ -1,4 +1,6 @@
-= RSpec HTTP 
+= RSpec HTTP 0.0.2
+
+(c) Copyright 2010-2011 {C42 Engineering}[http://c42.in]. All Rights Reserved.
 
 RSpec HTTP is a RSpec extension library that adds support for writing specs that cover HTTP based API (or more popularly, RESTful APIs). 
 
@@ -17,3 +19,15 @@ This will make matchers such as the ones listed below available to you in your s
   response.should be_http_unprocessable_entity
   
   response.should be_http_im_a_teapot
+
+== Rails
+
+If you're using Rails (and implicitly, rspec-rails), the same matchers will also be available in your controller specs '''without''' the <code>http</code> namespace. In other words, in your controller specs you can do:
+
+response.should be_ok
+
+response.should be_created
+
+response.should be_unprocessable_entity
+
+response.should be_im_a_teapot

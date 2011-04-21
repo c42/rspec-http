@@ -8,32 +8,32 @@ module RSpec::Http
   
     context 'status to matcher conversion' do
       it "replaces spaces with underscores" do
-        ResponseCodeMatchers::clean_up_status("Method Not Allowed").should eq(:method_not_allowed)
+        StatusCodes.clean_up_status("Method Not Allowed").should eq(:method_not_allowed)
       end
       
       it "downcases capital letters" do
-        ResponseCodeMatchers::clean_up_status("IM Used").should eq(:im_used)
+        StatusCodes.clean_up_status("IM Used").should eq(:im_used)
       end
       
       it "removes apostrophes" do
-        ResponseCodeMatchers::clean_up_status("I'm A Teapot").should eq(:im_a_teapot)
+        StatusCodes.clean_up_status("I'm A Teapot").should eq(:im_a_teapot)
       end
       
       it "replaces hyphens with underscores" do
-        ResponseCodeMatchers::clean_up_status("Non-Authoritative Information").should eq(:non_authoritative_information)
+        StatusCodes.clean_up_status("Non-Authoritative Information").should eq(:non_authoritative_information)
       end
     end
     
     context "matching codes" do
-      STATUS_CODES.each do |code, status|
+      StatusCodes.values.each do |code, status|
         it "understands if a response is of type #{status}" do
           response.stub(:code).and_return(code.to_s)
-          response.should send("be_http_#{ResponseCodeMatchers.status_as_valid_method_name(code)}")
+          response.should send("be_http_#{StatusCodes.as_valid_method_name(code)}")
         end
     
         it "understands if a response is not of type #{status}" do
           response.stub(:code).and_return('0')
-          response.should_not send("be_http_#{ResponseCodeMatchers.status_as_valid_method_name(code)}")
+          response.should_not send("be_http_#{StatusCodes.as_valid_method_name(code)}")
         end
       end
       
