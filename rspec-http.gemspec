@@ -21,5 +21,6 @@ Gem::Specification.new do |s|
   s.require_path     = "lib"
 
   s.add_runtime_dependency "rspec", "~> 2.0"
+  s.add_runtime_dependency "rack", "~> 1.0"
 end
 

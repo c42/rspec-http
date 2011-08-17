@@ -1,7 +1,7 @@
 require "spec_helper"
 
 module RSpec::Http
-  describe 'API matchers' do
+  describe ResponseCodeMatchers do
     include ResponseCodeMatchers
 
     let(:response) { mock('HTTP Response') }
