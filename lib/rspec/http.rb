@@ -5,8 +5,9 @@ require 'rspec/http/response_code_matcher'
 require 'rspec/http/response_code_matchers'
 require 'rspec/http/header_matchers'
 
-require 'rspec/http/rails'# if Kernel.const_defined?('Rails')
+require 'rspec/http/rails'
 
 RSpec::configure do |config|
   config.include(RSpec::Http::ResponseCodeMatchers)
+  config.include(RSpec::Http::HeaderMatchers)
 end
