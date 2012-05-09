@@ -7,7 +7,7 @@ module RSpec
 
       def matches?(target)
         @target = target
-        @target.code.to_i == @expected_code
+        @target.status == @expected_code
       end
 
       def description
@@ -23,8 +23,8 @@ module RSpec
       end
 
       def common_message
-        message = "have a response code of #{@expected_code}, but got #{@target.code}"
-        if @target.code.to_i == 302 || @target.code.to_i == 201
+        message = "have a response code of #{@expected_code}, but got #{@target.status}"
+        if @target.status == 302 || @target.status == 201
           message += " with a location of #{@target['Location'] || @target['location']}" 
         end
         message
