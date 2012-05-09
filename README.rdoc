@@ -1,4 +1,4 @@
-= RSpec HTTP 0.9.0
+= RSpec HTTP 0.10.0
 
 (c) Copyright 2010-2011 {C42 Engineering}[http://c42.in]. All Rights Reserved.
 

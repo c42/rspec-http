@@ -1,3 +1,9 @@
+== 0.10.0
+
+* RSpec::Matchers::MatcherError used is removed from RSpec
+	(https://github.com/rspec/rspec-expectations/commit/e031971317884815f2397c70ee9b02e467d0ef3c)
+* Support for Rake::MockResponse which does not have method code
+
 == 0.0.1
 
 * Matchers for HTTP response codes
