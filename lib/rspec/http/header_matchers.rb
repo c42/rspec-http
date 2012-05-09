@@ -14,7 +14,7 @@ module RSpec
             when String then HeaderStringMatcher.new(header, expected_value)
             when Regexp then HeaderRegexpMatcher.new(header, expected_value)
             when NO_VALUE then HeaderPresenceMatcher.new(header)
-            else raise RSpec::Matchers::MatcherError.new("The value for a header should be either a String or a Regexp and not of type #{expected_value.class}")
+            else raise SyntaxError.new("The value for a header should be either a String or a Regexp and not of type #{expected_value.class}")
           end
         else
           @matcher = HeaderPresenceMatcher.new(header)
