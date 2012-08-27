@@ -70,7 +70,7 @@ module RSpec
       end
 
       def validate
-        expected_value == response[header]
+        expected_value.downcase == response[header].downcase
       end
 
       def description

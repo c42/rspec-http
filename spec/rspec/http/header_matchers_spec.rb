@@ -39,6 +39,10 @@ module RSpec::Http
         response.should have_header("Content-Type" => "text/plain")
       end
 
+      it "passes if matching is incasesensitve" do
+        response.should have_header("Content-Type" => "Text/Plain")
+      end
+
       context "incorrect value" do
         it "fails if the value is incorrect" do
           response.should_not have_header("Content-Type" => "text/csv")
