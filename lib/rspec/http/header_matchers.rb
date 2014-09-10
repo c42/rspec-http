@@ -3,11 +3,11 @@ module RSpec
     class HeaderMatcher
       attr_reader :header, :expected_value, :response
       NO_VALUE = Object.new
-      
+
       def initialize(expected)
         @header, @expected_value = expected.kind_of?(String) ? [expected, NO_VALUE] : expected.first
       end
-      
+
       def matches?(response)
         if response[header]
           @matcher = case expected_value
@@ -21,35 +21,35 @@ module RSpec
         end
         @matcher.matches?(response)
       end
-      
+
       def description
         @matcher.description
       end
-      
+
       def failure_message
         @matcher.failure_message
       end
-      
-      def negative_failure_message
-        @matcher.negative_failure_message
+
+      def failure_message_when_negated
+        @matcher.failure_message_when_negated
       end
     end
-    
+
     class HeaderPresenceMatcher
       attr_reader :header, :expected_value, :response
       def initialize(header)
         @header = header
       end
-      
+
       def matches?(response)
         @response = response
         validate
       end
-      
+
       def validate
         response[header]
       end
-      
+
       def description
         "Verify the presence of '#{header}' among the response headers"
       end
@@ -58,11 +58,11 @@ module RSpec
         "The header '#{header}' was not found"
       end
 
-      def negative_failure_message
+      def failure_message_when_negated
         "The header '#{header}' should not have been found, but it was and it has a value of '#{response[header]}'"
       end
     end
-    
+
     class HeaderStringMatcher < HeaderPresenceMatcher
       def initialize(header, expected_value)
         super(header)
@@ -81,11 +81,11 @@ module RSpec
         "Expected the response header '#{header}' to have a value of '#{expected_value}' but it was '#{@response[header]}'"
       end
 
-      def negative_failure_message
+      def failure_message_when_negated
         "Expected the response header '#{header}' to have a value that is not '#{expected_value}'"
       end
     end
-    
+
     class HeaderRegexpMatcher < HeaderPresenceMatcher
       def initialize(header, expected_value)
         super(header)
@@ -104,11 +104,11 @@ module RSpec
         "Expected the response header '#{header}' to have a value that matched #{expected_value.inspect} but it was '#{@response[header]}'"
       end
 
-      def negative_failure_message
+      def failure_message_when_negated
         "Expected the response header '#{header}' to have a value that does not match #{expected_value.inspect} but it was '#{@response[header]}'"
       end
     end
-    
+
     module HeaderMatchers
       def have_header(expected)
         HeaderMatcher.new(expected)
