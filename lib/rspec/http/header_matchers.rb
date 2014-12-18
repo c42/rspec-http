@@ -30,8 +30,8 @@ module RSpec
         @matcher.failure_message
       end
       
-      def negative_failure_message
-        @matcher.negative_failure_message
+      def failure_message_when_negated
+        @matcher.failure_message_when_negated
       end
     end
     
@@ -58,7 +58,7 @@ module RSpec
         "The header '#{header}' was not found"
       end
 
-      def negative_failure_message
+      def failure_message_when_negated
         "The header '#{header}' should not have been found, but it was and it has a value of '#{response[header]}'"
       end
     end
@@ -81,7 +81,7 @@ module RSpec
         "Expected the response header '#{header}' to have a value of '#{expected_value}' but it was '#{@response[header]}'"
       end
 
-      def negative_failure_message
+      def failure_message_when_negated
         "Expected the response header '#{header}' to have a value that is not '#{expected_value}'"
       end
     end
@@ -104,7 +104,7 @@ module RSpec
         "Expected the response header '#{header}' to have a value that matched #{expected_value.inspect} but it was '#{@response[header]}'"
       end
 
-      def negative_failure_message
+      def failure_message_when_negated
         "Expected the response header '#{header}' to have a value that does not match #{expected_value.inspect} but it was '#{@response[header]}'"
       end
     end

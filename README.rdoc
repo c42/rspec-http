@@ -12,28 +12,30 @@ Then add the following line to your spec_helper.rb:
   
 This will make matchers such as the ones listed below available to you in your specs.
   
-  response.should be_http_ok
+  expect(response).to be_http_ok
   
-  response.should be_http_created
+  expect(response).to be_http_created
   
-  response.should be_http_unprocessable_entity
+  expect(response).to be_http_unprocessable_entity
   
-  response.should be_http_im_a_teapot
+  expect(response).to be_http_im_a_teapot
   
-  response.should have_header('Content-Type')
+  expect(response).to have_header('Content-Type')
 
-  response.should have_header('Content-Type' => 'application/json')
+  expect(response).to have_header('Content-Type' => 'application/json')
   
-  response.should have_header('Content-Type' => /json/)
+  expect(response).to have_header('Content-Type' => /json/)
 
 == Rails
 
-If you're using Rails (and implicitly, rspec-rails), the same http code matchers will also be available in your controller specs *without* the <code>http</code> namespace. In other words, in your controller specs you can do:
+If you're using Rails (and implicitly, rspec-rails), the same http code matchers will also be available in your controller specs *without* the <code>http</code> namespace.
 
-  response.should be_ok
+In other words, in your controller specs you can do:
 
-  response.should be_created
+  expect(response).to be_ok
 
-  response.should be_unprocessable_entity
+  expect(response).to be_created
 
-  response.should be_im_a_teapot
+  expect(response).to be_unprocessable_entity
+
+  expect(response).to be_im_a_teapot

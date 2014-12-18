@@ -18,7 +18,7 @@ module RSpec
         "Expected #{@target} to #{common_message}"
       end
 
-      def negative_failure_message
+      def failure_message_when_negated
         "Expected #{@target} to not #{common_message}"
       end
 

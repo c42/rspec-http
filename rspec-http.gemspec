@@ -12,14 +12,15 @@ Gem::Specification.new do |s|
   s.summary     = "RSpec HTTP is an extension library that makes it easier to write specs for HTTP/REST APIs"
   s.description = "RSpec HTTP is an extension library that makes it easier to write specs for HTTP/REST APIs"
 
-  s.rubygems_version   = "1.3.7"
-
   s.files            = `git ls-files`.split("\n") - ['.gitignore']
   s.test_files       = `git ls-files -- {spec}/*`.split("\n")
   s.extra_rdoc_files = [ "README.rdoc" ]
   s.rdoc_options     = ["--charset=UTF-8"]
   s.require_path     = "lib"
 
-  s.add_runtime_dependency "rspec", "~> 2.0"
+  s.add_development_dependency "rake"
+  
+  s.add_runtime_dependency "rspec", "~> 3.0"
+  s.add_runtime_dependency "rack", "~> 1.0"
 end
 
