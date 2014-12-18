@@ -1,11 +1,11 @@
-= RSpec HTTP 0.10.0
+= RSpec HTTP 0.11.0
 
 (c) Copyright 2010-2011 {C42 Engineering}[http://c42.in]. All Rights Reserved.
 
 RSpec HTTP is a RSpec extension library that adds support for writing specs that cover HTTP based APIs (or more popularly, RESTful APIs). 
 
 To use this library, first add the rspec-http gem to your Gemfile like so:
-  gem 'rspec-http', '~> 0.9'
+  gem 'rspec-http'
 
 Then add the following line to your spec_helper.rb:
   require 'rspec/http'
